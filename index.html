@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Sei missioni per usare il telefono senza che il telefono usi te.">
+<meta name="theme-color" content="#241B3F">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23241B3F'/%3E%3Ctext y='72' x='50' font-size='58' text-anchor='middle'%3E%F0%9F%93%B1%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='80'%3E%F0%9F%93%B1%3C/text%3E%3C/svg%3E">
+<style>html{-webkit-tap-highlight-color:rgba(232,51,109,.25)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Il Manuale del Dito Veloce</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --ink:#241B3F;
+    --ink-soft:#544A78;
+    --paper:#EEEBFA;
+    --card:#FFFFFF;
+    --line:#241B3F;
+    --pink:#E8336D;
+    --tang:#FF8A3D;
+    --teal:#0F8F86;
+    --butter:#FFC94D;
+    --grape:#7B5CE0;
+    --shadow:rgba(36,27,63,.95);
+    --tint:rgba(123,92,224,.10);
+    --band:#241B3F;
+    --band-ink:#FFF8EC;
+    --radius:14px;
+    --display:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
+    --body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+    --mono:"DM Mono",ui-monospace,"Courier New",monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#F0EBFF;
+      --ink-soft:#B4A9DA;
+      --paper:#17122C;
+      --card:#221B40;
+      --line:#4C3F80;
+      --pink:#FF6B9C;
+      --tang:#FFA25E;
+      --teal:#3FCFBE;
+      --butter:#FFD36B;
+      --grape:#A78BFF;
+      --shadow:rgba(0,0,0,.6);
+      --tint:rgba(167,139,255,.14);
+      --band:#3B2F6B;
+      --band-ink:#FFF8EC;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#F0EBFF;
+    --ink-soft:#B4A9DA;
+    --paper:#17122C;
+    --card:#221B40;
+    --line:#4C3F80;
+    --pink:#FF6B9C;
+    --tang:#FFA25E;
+    --teal:#3FCFBE;
+    --butter:#FFD36B;
+    --grape:#A78BFF;
+    --shadow:rgba(0,0,0,.6);
+    --tint:rgba(167,139,255,.14);
+    --band:#3B2F6B;
+    --band-ink:#FFF8EC;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.62;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:43rem;margin:0 auto;padding:0 1.15rem 4rem}
+
+  /* ---------- barra avanzamento ---------- */
+  .bar{
+    position:sticky;top:0;z-index:20;
+    background:var(--band);color:var(--band-ink);
+    display:flex;align-items:center;gap:.7rem;
+    padding:.5rem 1.15rem;
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  }
+  .bar .track{flex:1;height:9px;background:rgba(255,255,255,.22);border-radius:99px;overflow:hidden}
+  .bar .fill{height:100%;width:0%;background:var(--butter);transition:width .35s ease}
+  .bar b{font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
+
+  /* ---------- copertina ---------- */
+  header{padding:2.6rem 0 1rem;text-align:left}
+  .eyebrow{
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);margin:0 0 .8rem
+  }
+  h1{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(2.5rem,10vw,4.1rem);line-height:.95;
+    margin:0 0 .5rem;text-wrap:balance;
+  }
+  h1 em{font-style:normal;color:var(--pink)}
+  .sub{font-size:1.12rem;max-width:30ch;margin:0 0 1.6rem}
+  .badge{
+    display:inline-block;font-family:var(--display);font-weight:700;
+    background:var(--butter);color:#241B3F;
+    border:3px solid var(--line);border-radius:10px;
+    padding:.35rem .8rem;transform:rotate(-2.2deg);
+    box-shadow:4px 4px 0 var(--shadow);
+  }
+
+  .howto{
+    background:var(--card);border:3px solid var(--line);border-radius:var(--radius);
+    box-shadow:6px 6px 0 var(--shadow);
+    padding:1.2rem 1.25rem;margin:1.8rem 0 3rem;
+  }
+  .howto h2{font-family:var(--display);font-size:1.25rem;margin:0 0 .5rem}
+  .howto ol{margin:0;padding-left:1.25rem;display:flex;flex-direction:column;gap:.4rem}
+  .howto p{margin:.8rem 0 0;color:var(--ink-soft);font-size:.95rem}
+
+  /* ---------- missioni ---------- */
+  .mission{margin:0 0 3.2rem}
+  .mhead{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:.9rem}
+  .num{
+    flex:0 0 auto;font-family:var(--display);font-weight:800;font-size:1.5rem;line-height:1;
+    width:2.6rem;height:2.6rem;display:grid;place-items:center;
+    border:3px solid var(--line);border-radius:50%;
+    color:#241B3F;box-shadow:3px 3px 0 var(--shadow);
+  }
+  .m1 .num{background:var(--tang)}
+  .m2 .num{background:var(--butter)}
+  .m3 .num{background:var(--pink);color:#fff}
+  .m4 .num{background:var(--grape);color:#fff}
+  .m5 .num{background:var(--teal);color:#fff}
+  .m6 .num{background:var(--butter)}
+  .mhead h2{
+    font-family:var(--display);font-weight:700;font-size:clamp(1.45rem,5.4vw,1.95rem);
+    line-height:1.1;margin:.15rem 0 0;text-wrap:balance;
+  }
+  .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:.15rem}
+  .mission p{margin:0 0 .95rem}
+  .mission p:last-child{margin-bottom:0}
+  .lead{font-size:1.05rem}
+  strong{font-weight:700}
+  .say{
+    font-family:var(--display);font-weight:700;font-size:1.06rem;
+    border-left:6px solid var(--pink);padding:.15rem 0 .15rem .8rem;margin:1.1rem 0;
+  }
+
+  /* riquadro cervello */
+  .brain{
+    background:var(--tint);border:2px dashed var(--line);border-radius:var(--radius);
+    padding:.95rem 1.05rem;margin:1.2rem 0;
+  }
+  .brain h3{font-family:var(--display);font-size:1.02rem;margin:0 0 .35rem}
+  .brain p{font-size:.97rem;margin:0}
+
+  /* elenco trucchi */
+  ul.tricks{list-style:none;margin:1.1rem 0;padding:0;display:flex;flex-direction:column;gap:.55rem}
+  ul.tricks li{padding-left:1.75rem;position:relative;font-size:.99rem}
+  ul.tricks li::before{
+    content:"→";position:absolute;left:0;top:0;
+    font-family:var(--mono);color:var(--pink);font-size:1rem;
+  }
+
+  /* autotest */
+  details.test{
+    background:var(--card);border:3px solid var(--line);border-radius:var(--radius);
+    box-shadow:5px 5px 0 var(--shadow);margin:1.3rem 0;overflow:hidden;
+  }
+  details.test summary{
+    cursor:pointer;list-style:none;padding:.85rem 1rem;
+    font-family:var(--display);font-weight:700;font-size:1.02rem;
+    display:flex;align-items:center;gap:.6rem;
+  }
+  details.test summary::-webkit-details-marker{display:none}
+  details.test summary::after{
+    content:"?";margin-left:auto;font-family:var(--mono);
+    background:var(--band);color:var(--band-ink);
+    width:1.5rem;height:1.5rem;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;font-size:.8rem;
+  }
+  details.test[open] summary::after{content:"−"}
+  details.test summary:focus-visible{outline:3px solid var(--pink);outline-offset:-3px}
+  .answer{padding:0 1rem 1rem;border-top:2px dashed var(--line);margin-top:.1rem}
+  .answer p{font-size:.97rem;margin:.75rem 0 0}
+  .answer p:first-child{margin-top:.75rem}
+
+  /* sfida */
+  .sfida{
+    display:flex;gap:.8rem;align-items:flex-start;
+    background:var(--card);border:3px solid var(--line);border-left-width:10px;border-left-color:var(--teal);
+    border-radius:var(--radius);padding:.95rem 1.05rem;margin:1.3rem 0 0;
+    box-shadow:5px 5px 0 var(--shadow);
+  }
+  .sfida input[type=checkbox]{
+    flex:0 0 auto;width:1.5rem;height:1.5rem;margin:.15rem 0 0;
+    accent-color:var(--teal);cursor:pointer;
+  }
+  .sfida .label{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);display:block}
+  .sfida h3{font-family:var(--display);font-size:1.06rem;margin:.1rem 0 .3rem}
+  .sfida p{font-size:.95rem;margin:0}
+  .sfida label{cursor:pointer}
+
+  /* allarme rosso */
+  .redflag{
+    background:var(--pink);color:#fff;border:3px solid var(--line);border-radius:var(--radius);
+    padding:1rem 1.1rem;margin:1.3rem 0;box-shadow:5px 5px 0 var(--shadow);
+  }
+  .redflag h3{font-family:var(--display);font-size:1.1rem;margin:0 0 .4rem;color:#fff}
+  .redflag p{font-size:.97rem;margin:0 0 .6rem;color:#fff}
+  .redflag p:last-child{margin-bottom:0}
+  .redflag strong{background:rgba(255,255,255,.22);padding:0 .2rem;border-radius:4px}
+
+  /* frasi pronte */
+  .phrases{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.1rem 0}
+  .phrases span{
+    font-family:var(--display);font-weight:700;font-size:.94rem;
+    background:var(--butter);color:#241B3F;border:2px solid var(--line);border-radius:99px;
+    padding:.3rem .75rem;
+  }
+
+  /* semaforo */
+  .rule10{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.7rem;margin:1.2rem 0;
+  }
+  .rule10 div{
+    border:3px solid var(--line);border-radius:var(--radius);padding:.75rem .85rem;background:var(--card);
+  }
+  .rule10 b{font-family:var(--display);display:block;font-size:1rem;margin-bottom:.15rem}
+  .rule10 span{font-size:.9rem;color:var(--ink-soft)}
+
+  /* ---------- patto ---------- */
+  .patto{
+    background:var(--card);border:4px solid var(--line);border-radius:18px;
+    box-shadow:8px 8px 0 var(--shadow);padding:1.4rem 1.3rem;margin-top:1rem;
+  }
+  .patto h2{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,6vw,2.2rem);margin:0 0 .3rem;line-height:1.05}
+  .patto .intro{font-size:1rem;margin:0 0 1.1rem}
+  .rules{list-style:none;margin:0 0 1.3rem;padding:0;display:flex;flex-direction:column;gap:.65rem}
+  .rules li{display:flex;gap:.7rem;align-items:flex-start;font-size:.99rem}
+  .rules input[type=checkbox]{flex:0 0 auto;width:1.35rem;height:1.35rem;margin:.15rem 0 0;accent-color:var(--grape);cursor:pointer}
+  .rules label{cursor:pointer}
+  .signs{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;border-top:2px dashed var(--line);padding-top:1.1rem}
+  .signs label{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:.3rem}
+  .signs input[type=text]{
+    width:100%;font-family:var(--display);font-weight:700;font-size:1.05rem;
+    background:transparent;color:var(--ink);
+    border:0;border-bottom:3px solid var(--line);padding:.3rem .1rem;
+  }
+  .signs input[type=text]:focus{outline:none;border-bottom-color:var(--pink)}
+  .patto .note{font-size:.88rem;color:var(--ink-soft);margin:1.1rem 0 0}
+
+  footer{margin-top:2.6rem;text-align:center;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--ink-soft)}
+
+  @media (max-width:420px){
+    .signs{grid-template-columns:1fr}
+    body{font-size:16.5px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="bar">
+  <span>Sfide fatte</span>
+  <span class="track"><span class="fill" id="fill"></span></span>
+  <b><span id="done">0</span>/6</b>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Manuale d'uso · livello 1 · leggi con calma</p>
+    <h1>Il manuale del <em>dito veloce</em></h1>
+    <p class="sub">Sei missioni per usare il telefono senza che il telefono usi te.</p>
+    <span class="badge">Non è una lista di divieti</span>
+  </header>
+
+  <section class="howto">
+    <h2>Come funziona</h2>
+    <ol>
+      <li>Sei missioni. Una al giorno basta e avanza.</li>
+      <li>In ogni missione c'è un <strong>autotest</strong>: prima rispondi tu nella testa, poi apri la risposta.</li>
+      <li>E c'è una <strong>sfida</strong>: quando l'hai fatta davvero, metti la spunta. La barra in alto tiene il conto.</li>
+    </ol>
+    <p>Nessuno ti sta dicendo che il telefono è cattivo. Ti stiamo dicendo come è costruito, così non ti frega.</p>
+  </section>
+
+  <!-- 1 -->
+  <section class="mission m1">
+    <div class="mhead">
+      <div class="num">1</div>
+      <h2><span class="kicker">Missione uno</span>Il telefono non è cattivo. È furbo.</h2>
+    </div>
+
+    <p class="lead">Immagina una stanza con cento persone sedute davanti a un computer. Il loro lavoro, tutto il giorno, è uno solo: <strong>far sì che tu non chiuda l'app</strong>. Vengono pagate per questo. Sono adulti, sono in cento, e hai dieci anni.</p>
+    <p>Non è una favola: si chiama <em>design</em> dell'app. Ogni cosa che vedi è stata scelta da qualcuno perché funziona su di noi. Quindi ricordati questa frase, è la più importante di tutto il manuale:</p>
+    <p class="say">Se fai fatica a smettere, non sei debole. È fatto per essere difficile.</p>
+
+    <div class="brain">
+      <h3>Cosa succede nel cervello</h3>
+      <p>Dentro la testa hai un campanellino che suona ogni volta che arriva una cosa nuova e bella: un messaggio, un cuoricino, un video divertente. <em>Ding!</em> Quel campanellino si chiama dopamina, e ti fa venire voglia di controllare di nuovo. Le app suonano quel campanellino cento volte al giorno. Alla fine controlli il telefono anche quando non è arrivato niente, come cercare biscotti in una scatola vuota.</p>
+    </div>
+
+    <p><strong>I trucchi che usano su di te.</strong> Cercali: quando li riconosci, perdono metà del potere.</p>
+    <ul class="tricks">
+      <li><strong>Lo scorrimento infinito:</strong> il feed non finisce mai. Un libro ha l'ultima pagina, questo no.</li>
+      <li><strong>Il pallino rosso:</strong> quel numerino sull'icona esiste solo per darti prurito alle dita.</li>
+      <li><strong>"Sta scrivendo…":</strong> ti tiene lì col respiro sospeso, come una pubblicità prima del cartone.</li>
+      <li><strong>Le serie da non interrompere</strong> (streak, punti, giorni di fila): ti fanno sentire in colpa se salti un giorno. Sono punti finti, non amici veri.</li>
+      <li><strong>L'anteprima della notifica:</strong> ti fa leggere mezza frase, così sei obbligata ad aprire per sapere il resto.</li>
+    </ul>
+
+    <details class="test">
+      <summary>Autotest: quante volte hai preso il telefono oggi senza motivo?</summary>
+      <div class="answer">
+        <p>Conta a mente le volte che l'hai sbloccato <em>senza</em> un motivo preciso, tipo: nessuno ti aveva scritto, non dovevi cercare niente, l'hai preso e basta.</p>
+        <p>Se ti viene un numero tipo 3 o 4, guarda meglio: quasi tutti sbagliano di molto. Gli adulti prendono il telefono tra le <strong>50 e le 100 volte al giorno</strong> e ne ricordano dieci. Il punto dell'autotest non è il numero: è scoprire che <strong>una parte di quelle volte non le hai nemmeno decise tu</strong>. Le ha decise la mano.</p>
+      </div>
+    </details>
+
+    <div class="sfida">
+      <input type="checkbox" id="s1" data-sfida>
+      <div>
+        <span class="label">Sfida 1</span>
+        <h3><label for="s1">Caccia al trucco</label></h3>
+        <p>Apri le app che usi e trova <strong>tre</strong> dei trucchi dell'elenco qui sopra. Dilli a voce alta, tipo: «Ecco il pallino rosso, sta provando a fregarmi». Vale anche farlo insieme a mamma o papà, e ridere.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="mission m2">
+    <div class="mhead">
+      <div class="num">2</div>
+      <h2><span class="kicker">Missione due</span>Il buco nero del tempo</h2>
+    </div>
+
+    <p class="lead">Dici: «cinque minuti». Alzi gli occhi e sono passati cinquanta. Non è che sei distratta: sei entrata nel buco nero. Là dentro il tempo non si sente passare, perché <strong>non c'è nessun momento in cui l'app ti dice "ok, hai finito"</strong>.</p>
+    <p>Pensa alla differenza. Un episodio finisce. Un capitolo finisce. Una partita finisce. Il feed no: appena arrivi in fondo, il fondo si sposta. È come una scala mobile che va al contrario, e tu continui a camminare senza arrivare da nessuna parte.</p>
+
+    <div class="brain">
+      <h3>Il trucco del finale finto</h3>
+      <p>Se l'app non ti dà un finale, <strong>il finale te lo porti da casa</strong>. Prima di aprire, decidi dove ti fermi: «rispondo a Giulia e chiudo», «guardo tre video e chiudo», «quindici minuti e chiudo». Detto <em>prima</em> funziona. Detto <em>dopo</em> non funziona mai, perché quando sei dentro il buco nero chi decide non sei più tu.</p>
+    </div>
+
+    <details class="test">
+      <summary>Autotest: la prova dei quindici minuti</summary>
+      <div class="answer">
+        <p>Fai così: la prossima volta che stai per chiudere il telefono, <strong>prima</strong> indovina quanti minuti sei stata dentro. Scrivi il numero su un foglio. <strong>Poi</strong> vai a controllare nelle impostazioni del telefono (si chiama Tempo di utilizzo o Benessere digitale).</p>
+        <p>Quasi tutti sbagliano di due o tre volte: pensi 15, erano 45. Non è colpa tua e non è una bocciatura, è la prova che il buco nero esiste. E adesso che l'hai visto, puoi mettergli un limite.</p>
+      </div>
+    </details>
+
+    <div class="sfida">
+      <input type="checkbox" id="s2" data-sfida>
+      <div>
+        <span class="label">Sfida 2</span>
+        <h3><label for="s2">Il timer sincero</label></h3>
+        <p>Metti un timer da <strong>15 minuti</strong> prima di aprire. Quando suona, chiudi <em>a metà</em> di quello che stavi guardando: è la parte difficile, ed è tutto l'allenamento. Poi di' a voce alta come ti senti: contenta, arrabbiata, tranquilla? Quella risposta ti dice tantissimo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="mission m3">
+    <div class="mhead">
+      <div class="num">3</div>
+      <h2><span class="kicker">Missione tre</span>Il dito più veloce del cervello</h2>
+    </div>
+
+    <p class="lead">Ore 21:47. Una tua amica scrive una cosa che ti fa male. Il tuo pollice risponde in due secondi. Il tuo cervello arriva in ritardo di venti minuti, guarda il messaggio e dice: «…aspetta, cosa ho scritto?». Troppo tardi: quel messaggio adesso vive per sempre.</p>
+    <p class="say">Un messaggio è come il dentifricio: una volta uscito dal tubetto, non ci torna dentro.</p>
+    <p>Il tasto «elimina per tutti» non salva niente: l'altro l'ha già letto, o ha già fatto lo screenshot, o l'ha già girato a due persone. Su WhatsApp <strong>tutto è copiabile</strong>: i messaggi, le foto, i vocali, anche le cose che spariscono.</p>
+
+    <div class="rule10">
+      <div><b>Verde 🟢</b><span>Sei tranquilla? Scrivi, manda, vivi serena.</span></div>
+      <div><b>Giallo 🟡</b><span>Sei un po' agitata? Rileggi una volta prima di mandare.</span></div>
+      <div><b>Rosso 🔴</b><span>Sei arrabbiata, offesa o ci stai per piangere? <strong>Non si manda niente.</strong></span></div>
+    </div>
+
+    <div class="brain">
+      <h3>La bozza fredda</h3>
+      <p>Quando è rosso, scrivi tutto quello che vuoi… ma nelle <strong>Note</strong>, non nella chat. Sfoghi tutto, insulti compresi, e chiudi. La mattina dopo rileggi: nove volte su dieci ti metti a ridere e cancelli, e hai appena salvato un'amicizia. La decima volta scrivi una versione molto più intelligente, che ti fa fare la figura di quella coi nervi saldi.</p>
+    </div>
+
+    <details class="test">
+      <summary>Autotest: le tre domande prima di premere invio</summary>
+      <div class="answer">
+        <p><strong>1.</strong> Glielo direi guardandola in faccia?<br>
+        <strong>2.</strong> Sono tranquilla se lo legge un adulto di cui mi fido?<br>
+        <strong>3.</strong> Sarò contenta di questo messaggio tra un mese?</p>
+        <p>Se anche una sola risposta è «no», il messaggio non è pronto. Non sei tu che non sei pronta: è <em>lui</em>. Riscrivilo.</p>
+      </div>
+    </details>
+
+    <div class="sfida">
+      <input type="checkbox" id="s3" data-sfida>
+      <div>
+        <span class="label">Sfida 3</span>
+        <h3><label for="s3">Aspetta un mattino</label></h3>
+        <p>La prossima volta che sei nel <strong>rosso</strong>, scrivi il messaggio nelle Note e non mandarlo fino al giorno dopo. Poi guarda cosa hai deciso di farne. Spunta questa sfida solo quando ce l'hai fatta per davvero: è la più difficile del manuale.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="mission m4">
+    <div class="mhead">
+      <div class="num">4</div>
+      <h2><span class="kicker">Missione quattro</span>Le due spunte blu e il cuore che batte</h2>
+    </div>
+
+    <p class="lead">Hai scritto. Due spunte blu: <em>l'ha letto</em>. Passa un minuto. Cinque. Venti. E il tuo cervello, che odia il silenzio, comincia a inventare storie: «è offesa», «non le piaccio più», «sta scrivendo con qualcun altro». Undici storie su dodici sono false. Verità numero dodici: <strong>stava cenando.</strong></p>
+    <p>Questa è l'ansia da telefono, e nasce da tre cose piccolissime: le spunte blu, l'«ultimo accesso» e il pallino «online». Servono a farti sentire che l'amicizia è una gara a chi risponde più veloce. Non lo è.</p>
+    <p class="say">Non sei un servizio clienti. Non devi rispondere subito a nessuno.</p>
+
+    <div class="brain">
+      <h3>La notte è la parte più delicata</h3>
+      <p>Il telefono nella stanza di notte fa due danni in uno: ti tiene sveglia (la luce dice al cervello che è ancora giorno) e ti fa leggere messaggi proprio quando sei più stanca e prendi tutto più a male. Poi dormi poco, e il giorno dopo tutto sembra più brutto: la scuola, le amiche, la faccia allo specchio. Non è la tua vita che è peggiorata, è il sonno che manca.</p>
+    </div>
+
+    <p><strong>C'è un'altra trappola:</strong> negli altri vedi solo il momento più bello della loro giornata. Nessuno pubblica il compito andato male, il litigio in cucina, il pomeriggio in cui si annoiava sul divano. Confrontare la tua giornata intera con il momento migliore di venti persone è come correre contro venti persone alla volta: perdi sempre, ma la gara era truccata.</p>
+
+    <p><strong>Gli attrezzi che hai a disposizione</strong> (li puoi accendere oggi, sono nelle impostazioni):</p>
+    <ul class="tricks">
+      <li>Spegni le <strong>conferme di lettura</strong> e l'<strong>ultimo accesso</strong>: se non lo vedi tu e non lo vedono gli altri, la gara finisce.</li>
+      <li>Silenzia i <strong>gruppi</strong>. I gruppi non sono persone: possono aspettare.</li>
+      <li>Lascia le notifiche solo alle <strong>persone vere</strong>, non alle app.</li>
+      <li>Dai al telefono un <strong>orario di chiusura</strong>, come i negozi. Dopo quell'ora, carica fuori dalla camera.</li>
+    </ul>
+
+    <details class="test">
+      <summary>Autotest: cosa temo, davvero, se sparisce per tre ore?</summary>
+      <div class="answer">
+        <p>Rispondi sincera: se il telefono si spegnesse per tre ore, cosa ti spaventa di più? Perdere una notizia? Che pensino che le stai ignorando? Restare fuori da uno scherzo del gruppo? Annoiarti?</p>
+        <p>Qualunque sia la risposta, dalle un nome. Le paure con un nome fanno molta meno paura di quelle senza. E se la risposta è «che restino male», ricordati che alle amiche vere puoi semplicemente dirlo prima: «stasera non ci sono, ci scriviamo domani». Funziona, e nessuno muore.</p>
+      </div>
+    </details>
+
+    <div class="sfida">
+      <input type="checkbox" id="s4" data-sfida>
+      <div>
+        <span class="label">Sfida 4</span>
+        <h3><label for="s4">Tre notti tranquille</label></h3>
+        <p>Per <strong>tre notti</strong> il telefono si carica fuori dalla camera. La mattina, appena sveglia, chiediti: come sto? Se dopo tre notti ti senti meno pesante, l'hai scoperto tu, non te l'ha detto un adulto. E le cose che scopri da sola sono quelle che restano.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="mission m5">
+    <div class="mhead">
+      <div class="num">5</div>
+      <h2><span class="kicker">Missione cinque</span>Quando il gruppo diventa un branco</h2>
+    </div>
+
+    <p class="lead">Gruppo classe, ore 20. Ottantasette messaggi. Qualcuno fa una battuta su una compagna che non c'è. Arrivano sei risate. Tu la battuta non l'hai fatta, però nemmeno l'hai fermata. E la ragazza di cui parlavano, domani, lo saprà.</p>
+    <p>Nei gruppi succede una cosa strana: <strong>tanti insieme sono più cattivi di ognuno da solo</strong>. In parte perché nessuno si sente il responsabile («ho solo messo una risata»), in parte perché dietro allo schermo non vedi la faccia dell'altra persona. Se le facce le vedessimo, la metà di quei messaggi non partirebbe.</p>
+
+    <p><strong>Le tre trappole dei gruppi:</strong></p>
+    <ul class="tricks">
+      <li><strong>Le catene:</strong> «inoltra a 10 persone o ti succede una cosa brutta». Non succede niente. Mai. È solo un messaggio che si fa portare in giro da te.</li>
+      <li><strong>Lo screenshot che gira:</strong> una chat privata che finisce in un gruppo. Regola semplice: quello che ti ha scritto una persona in privato, resta in privato.</li>
+      <li><strong>La battuta a turno:</strong> quando tutti prendono in giro la stessa persona, non è più una battuta, è un branco. Anche restare zitta è una scelta.</li>
+    </ul>
+
+    <p><strong>Frasi pronte da copiare</strong> — servono davvero, perché nel momento non ti viene niente in mente:</p>
+    <div class="phrases">
+      <span>«Ragazzi, questa non fa ridere.»</span>
+      <span>«Io non inoltro.»</span>
+      <span>«Basta, cambiamo discorso.»</span>
+      <span>«Io da questo gruppo esco.»</span>
+      <span>«Non mando foto, scordatevelo.»</span>
+    </div>
+    <p>Uscire da un gruppo non è drammatico e non è offendere nessuno: è come uscire da una stanza troppo rumorosa. Puoi farlo. E puoi rientrare domani.</p>
+
+    <div class="redflag">
+      <h3>Allarme rosso: quando devi chiamare un adulto</h3>
+      <p>Se qualcuno — anche uno che dice di avere la tua età, anche uno "simpatico" — ti chiede <strong>foto del tuo corpo</strong>, ti chiede di <strong>non dirlo ai tuoi</strong>, ti manda cose che ti fanno sentire a disagio, o insiste dopo che hai detto no: quello è allarme rosso.</p>
+      <p>Cosa fai, in ordine: <strong>non rispondi</strong> → <strong>fai lo screenshot</strong> → <strong>blocchi</strong> → <strong>lo dici subito a mamma o papà</strong>.</p>
+      <p>E la cosa più importante di tutte: <strong>tu non sei nei guai.</strong> Nemmeno se hai già risposto, nemmeno se hai già mandato qualcosa, nemmeno se ti sembra una figuraccia. Chi ha sbagliato è l'altro, sempre. Dirlo a un adulto non è fare la spia: è chiedere rinforzi.</p>
+    </div>
+
+    <details class="test">
+      <summary>Autotest: la domanda dello specchio</summary>
+      <div class="answer">
+        <p>Prima di scrivere, inoltrare o anche solo mettere una risata in un gruppo, chiediti: <strong>se la persona di cui stiamo parlando leggesse questo messaggio, riderebbe anche lei?</strong></p>
+        <p>Se la risposta è sì, tranquilla, era una battuta. Se la risposta è no, non era una battuta: era una cosa che fa male e sembrava una battuta perché eravate in tanti.</p>
+      </div>
+    </details>
+
+    <div class="sfida">
+      <input type="checkbox" id="s5" data-sfida>
+      <div>
+        <span class="label">Sfida 5</span>
+        <h3><label for="s5">L'eroina silenziosa</label></h3>
+        <p>Trova qualcuno che è stato lasciato fuori, preso in giro o ignorato, e scrivigli <strong>un messaggio in privato</strong>: «ehi, ci sono io». Non serve dirlo a nessun altro, non serve nessuna medaglia. È la cosa più forte che si può fare con un telefono, e la sanno fare pochissimi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="mission m6">
+    <div class="mhead">
+      <div class="num">6</div>
+      <h2><span class="kicker">Missione sei</span>Come restare il capo del telefono</h2>
+    </div>
+
+    <p class="lead">Tutto questo manuale non serve a farti usare <em>meno</em> il telefono. Serve a farti usare il telefono <strong>da capo</strong>. La differenza si sente subito: il capo apre l'app per fare una cosa, la fa, e chiude. Il dipendente apre l'app e poi vede cosa gli dice di fare l'app.</p>
+    <p class="say">Prima di sbloccare, di' a voce alta: «vado a fare cosa?»</p>
+    <p>Sembra una scemenza. È la cosa che funziona di più di tutte. Se non ti viene nessuna risposta, quella volta il telefono non l'hai preso tu: ti ha preso lui.</p>
+
+    <p><strong>La cassetta degli attrezzi del capo:</strong></p>
+    <ul class="tricks">
+      <li><strong>Notifiche off</strong> tranne le persone. Le app non hanno il diritto di chiamarti.</li>
+      <li><strong>Niente app in prima pagina:</strong> spostale in una cartella. Due passaggi in più bastano a svegliare il cervello.</li>
+      <li><strong>Bianco e nero</strong> (in italiano nelle impostazioni: scala di grigi). Prova un pomeriggio: senza colori il feed diventa noiosissimo. È una magia.</li>
+      <li><strong>Il parcheggio:</strong> un posto fisso in casa dove il telefono sta quando mangi, studi o giochi. Non in tasca, non capovolto sul tavolo: <em>nel parcheggio</em>.</li>
+      <li><strong>Una cosa alla volta:</strong> il telefono mentre studi ti fa studiare il doppio del tempo con metà del risultato. Non stai facendo due cose: le stai facendo male entrambe.</li>
+      <li><strong>Un giorno lento a settimana:</strong> mezza giornata senza telefono in cui fai una cosa con le mani o con i piedi. Serve per ricordarti che ti annoi bene anche da sola: è lì che vengono le idee.</li>
+    </ul>
+
+    <details class="test">
+      <summary>Autotest: chi ha preso chi?</summary>
+      <div class="answer">
+        <p>Guarda le ultime tre volte che hai usato il telefono e dai un voto a ognuna: <strong>C</strong> se l'hai preso tu con uno scopo (capo), <strong>D</strong> se l'hai preso perché era lì (dipendente).</p>
+        <p>Nessuno fa tre C su tre, nemmeno i grandi. Ma se fai una C in più questa settimana, hai vinto la settimana. Non serve la perfezione: serve accorgersene.</p>
+      </div>
+    </details>
+
+    <div class="sfida">
+      <input type="checkbox" id="s6" data-sfida>
+      <div>
+        <span class="label">Sfida 6</span>
+        <h3><label for="s6">Una settimana da capo</label></h3>
+        <p>Scegli <strong>tre</strong> attrezzi dall'elenco qui sopra e usali per una settimana intera. Tre, non sei: chi ne sceglie sei molla dopo due giorni. Alla fine della settimana racconta a mamma o papà quale ha funzionato meglio, e quale era insopportabile.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATTO -->
+  <section class="patto" id="patto">
+    <h2>Il patto del telefono</h2>
+    <p class="intro">Questo non è un elenco di punizioni: è un accordo. Da una parte tu, che ti prendi delle regole. Dall'altra i tuoi, che si prendono le loro. Leggetelo insieme, toglietene una se non vi convince, aggiungetene una vostra, poi firmate.</p>
+
+    <p><strong>Io mi impegno a:</strong></p>
+    <ul class="rules">
+      <li><input type="checkbox" id="p1" data-patto><label for="p1">Tenere il telefono nel <strong>parcheggio</strong> quando si mangia, si studia e si dorme.</label></li>
+      <li><input type="checkbox" id="p2" data-patto><label for="p2">Non mandare <strong>mai</strong> foto del mio corpo, e non chiederle a nessuno.</label></li>
+      <li><input type="checkbox" id="p3" data-patto><label for="p3">Non dare a nessuno online il mio <strong>indirizzo, la scuola o il numero</strong>, e non incontrare di persona qualcuno conosciuto in chat.</label></li>
+      <li><input type="checkbox" id="p4" data-patto><label for="p4">Dire <strong>subito</strong> a mamma o papà se qualcosa mi fa sentire a disagio, anche se temo di aver fatto una figuraccia.</label></li>
+      <li><input type="checkbox" id="p5" data-patto><label for="p5">Usare la <strong>bozza fredda</strong>: quando sono nel rosso, scrivo nelle Note e non nella chat.</label></li>
+      <li><input type="checkbox" id="p6" data-patto><label for="p6">Non inoltrare screenshot di chat private e non partecipare quando il gruppo si accanisce su qualcuno.</label></li>
+    </ul>
+
+    <p><strong>Mamma e papà si impegnano a:</strong></p>
+    <ul class="rules">
+      <li><input type="checkbox" id="g1" data-patto><label for="g1"><strong>Non togliere il telefono</strong> come punizione quando lei viene a raccontarci un problema. Mai.</label></li>
+      <li><input type="checkbox" id="g2" data-patto><label for="g2">Ascoltare prima e arrabbiarsi dopo, e non leggere le sue chat di nascosto.</label></li>
+      <li><input type="checkbox" id="g3" data-patto><label for="g3">Rispettare anche noi il <strong>parcheggio</strong> a tavola. Le regole valgono per tutti o non sono regole.</label></li>
+      <li><input type="checkbox" id="g4" data-patto><label for="g4">Rileggere questo patto insieme <strong>tra un mese</strong> e cambiare quello che non funziona.</label></li>
+    </ul>
+
+    <div class="signs">
+      <div>
+        <label for="firma1">Firma di lei</label>
+        <input type="text" id="firma1" placeholder="il tuo nome" autocomplete="off">
+      </div>
+      <div>
+        <label for="firma2">Firma di mamma e papà</label>
+        <input type="text" id="firma2" placeholder="i loro nomi" autocomplete="off">
+      </div>
+    </div>
+    <p class="note">Le spunte e le firme restano salvate su questo telefono o computer, così ritrovi il patto come l'avete lasciato.</p>
+  </section>
+
+  <footer>Fine del manuale · torna quando vuoi, le sfide ti aspettano</footer>
+</div>
+
+<script>
+(function(){
+  var KEY = "manuale-dito-veloce-v1";
+  function load(){
+    try { return JSON.parse(localStorage.getItem(KEY) || "{}") || {}; }
+    catch(e){ return {}; }
+  }
+  function save(state){
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){}
+  }
+
+  var state = load();
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type=checkbox]'));
+  var texts = Array.prototype.slice.call(document.querySelectorAll('input[type=text]'));
+  var sfide = Array.prototype.slice.call(document.querySelectorAll('input[data-sfida]'));
+  var fill = document.getElementById('fill');
+  var done = document.getElementById('done');
+
+  function progress(){
+    var n = sfide.filter(function(b){ return b.checked; }).length;
+    done.textContent = n;
+    fill.style.width = Math.round(n / sfide.length * 100) + '%';
+  }
+
+  boxes.forEach(function(b){
+    if (state[b.id] === true) b.checked = true;
+    b.addEventListener('change', function(){
+      state[b.id] = b.checked;
+      save(state);
+      progress();
+    });
+  });
+
+  texts.forEach(function(t){
+    if (typeof state[t.id] === 'string') t.value = state[t.id];
+    t.addEventListener('input', function(){
+      state[t.id] = t.value;
+      save(state);
+    });
+  });
+
+  progress();
+})();
+</script>
+</body>
+</html>
